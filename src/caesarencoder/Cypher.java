@@ -38,7 +38,6 @@ public class Cypher
         return cypheredText;
     }
 
-
     public String cypherText()
     {
         char[] inputText = userInput.toCharArray();
