@@ -93,5 +93,3 @@ public class Cypher
         fileWriter.close();
     }
 }
-// test comment
-// sdfsdfsdfg&
