@@ -2,7 +2,7 @@ package caesarencoder;
 
 import java.io.FileWriter;
 
-public class Cypher
+class Cypher
 {
     private final int alphabetSize = 39;
     private int key;
@@ -15,30 +15,32 @@ public class Cypher
             'N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
             '0','1','2','3','4','5','6','7','8','9',' ','.',','};
 
-    public void setUserInput(String userInput)
+    void setUserInput(String userInput)
     {
         this.userInput = userInput;
     }
 
-    public void setKey(int key)
+    void setKey(int key)
     {
+        key = key % alphabetSize;
+
         while (key < 0)
             key += alphabetSize;
 
         this.key = key;
     }
 
-    public void setCypheredText(String cypheredText)
+    void setCypheredText(String cypheredText)
     {
         this.cypheredText = cypheredText;
     }
 
-    public String getCypheredText()
+    String getCypheredText()
     {
         return cypheredText;
     }
 
-    public String cypherText()
+    String cypherText()
     {
         char[] inputText = userInput.toCharArray();
         int inputSize = userInput.length();
@@ -86,7 +88,7 @@ public class Cypher
         return new String(cypheredText);
     }
 
-    public void writeToFile(String text) throws Exception
+    void writeToFile(String text) throws Exception
     {
         FileWriter fileWriter = new FileWriter("C:\\Studying\\uchebka 6\\OKZI\\labs\\laba1\\CAESAR\\encoded text.txt");
         fileWriter.write(text);
